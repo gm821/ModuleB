@@ -27,7 +27,7 @@ Pod::Spec.new do |s|
   s.description  = <<-DESC
                    DESC
 
-  s.homepage     = "http://EXAMPLE/ModuleB"
+  s.homepage     = "https://github.com/gm821/ModuleB"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -38,7 +38,7 @@ Pod::Spec.new do |s|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  s.license      = "MIT (example)"
+  s.license      = "MIT"
   # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
@@ -79,7 +79,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "http://EXAMPLE/ModuleB.git", :tag => "#{s.version}" }
+  s.source       = { :git => "git@github.com:gm821/ModuleB.git", :tag => "#{s.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -92,6 +92,15 @@ Pod::Spec.new do |s|
 
   s.source_files  = "Classes", "Classes/**/*.{h,m}"
   s.exclude_files = "Classes/Exclude"
+
+    s.subspec 'Controller' do |ss|
+    ss.source_files = "ModuleB/Controller/**/*.{h,m}"
+    end
+
+    s.subspec 'Target' do |ss|
+    ss.source_files = "ModuleB/Target/**/*.{h,m}"
+    ss.dependency "ModuleB/Controller"
+    end
 
   # s.public_header_files = "Classes/**/*.h"
 
